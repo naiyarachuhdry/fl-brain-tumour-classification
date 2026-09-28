@@ -54,6 +54,17 @@ proximal-mu = 0.01
 model_name = "mobilenet"
 
 [partition]
-type = "iid"         # options: iid, dirichlet, shard
-alpha = 0.5          # used only for dirichlet
-num_shards = 2       # used only for shard
+type = "iid"
+seed = 42        # options: iid, dirichlet, shard
+alpha = 0.3         # used only for dirichlet
+num_shards = 2      # used only for shard
+num_classes = 1
+class_mode = "deterministic"
+partition_sizes = [3000, 4694]
+natural_id_column = "modality"
+group_size = 1
+labels_per_partition = 2
+distribution_array = [[0.8, 0.2], [0.3, 0.7]]
+preassigned_per_label = 0
+active_party_column = "Survived"
+vertical_sizes = [2, 3, 2]
