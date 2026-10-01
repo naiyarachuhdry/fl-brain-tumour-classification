@@ -1,10 +1,13 @@
-from datasets import Dataset, DatasetDict
+from pathlib import Path
 
 from datasets_loaders.brain_tumor_dataset import BrainTumorLoader
 
+DATA_DIR = Path(r"D:\Dataset")
+
 
 def test_dataset_length():
-    loader = BrainTumorLoader("../data/Brain-tumor-multimodal-image")
+    loader = BrainTumorLoader(str(DATA_DIR))
     dataset = loader.load()
 
-    assert len(dataset) == 9618
+    total = len(dataset["train"]) + len(dataset["test"])
+    assert total == 9618

@@ -27,6 +27,7 @@ PARTITIONERS = {
         num_partitions=num_partitions,
         partition_by="label",
         alpha=cfg["alpha"],
+        min_partition_size=cfg.get("min_partition_size", 10),
         seed=cfg.get("seed", 42),
     ),
     "shard": lambda cfg, num_partitions: ShardPartitioner(
