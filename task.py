@@ -27,7 +27,7 @@ brain_dataset = None
 
 def get_dataset():
     global brain_dataset
-    DATASET_PATH = os.environ.get("BRAIN_TUMOR_DATA", "data/brain-tumor-multimodal-image")
+    DATASET_PATH = os.environ.get("BRAIN_TUMOR_DATA", "D:/Dataset")
     if brain_dataset is None:
         loader = create_dataset('brain_tumor', DATASET_PATH)
         brain_dataset = loader.load()

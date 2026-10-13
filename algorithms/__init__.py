@@ -1,9 +1,11 @@
 from .fedavg import FedAvgTrainer
 from .fedprox import FedProxTrainer
 
+
 TRAINER_REGISTRY = {
     "fedavg": FedAvgTrainer,
     "fedprox": FedProxTrainer,
+    "fedavgm": FedAvgTrainer,
 }
 
 
